@@ -1,6 +1,6 @@
 <h1>ExpNo 3 : Implement Breadth First Search Traversal of a Graph</h1> 
-<h3>Name: Saravanan N</h3>
-<h3>Register Number/Staff Id: TSML006</h3>
+<h3>Name: Anbu Vinotha.S</h3>
+<h3>Register Number:212223230015</h3>
 <H3>Aim:</H3>
 <p>To Implement Breadth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -67,6 +67,37 @@ Now, Queue becomes empty, So, terminate these process of iteration.
 
 </ol>
 
+## Program:
+```
+from collections import defaultdict
+from collections import deque
+def bfs(g,s,vi,p):
+    q=deque()
+    p.append(s)
+    q.append(s)
+    vi[s]=True
+    while len(q)!=0:
+        tn=q.popleft()
+        for ne in g[tn]:
+            if vi[ne]==False:
+                p.append(ne)
+                q.append(ne)
+                vi[ne]=True
+    return p
+g=defaultdict(list)
+n,e=map(int,input().split())
+for i in range(e):
+    u,v=map(str,input().split())
+    g[u].append(v)
+    g[v].append(u)
+st=input()
+vi=defaultdict(bool)
+p=[]
+tdp=bfs(g,st,vi,p)
+print(tdp)
+```
+
+
 <hr>
 <h3>Sample Input</h3>
 <hr>
@@ -102,6 +133,10 @@ G F <BR>
 <hr>
 ['0', '1', '2', '3', '4']
 <hr>
+
+## Output:
+![image](https://github.com/anbuvinotha/19AI405ExpNo3/assets/144871822/c9b99e43-51a7-41dc-88e3-2fa752c6148d)
+
 <h3>Result:</h3>
 <hr>
 <p>Thus,a Graph was constructed and implementation of Breadth First Search for the same graph was done successfully.</p>
